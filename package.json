@@ -1,0 +1,22 @@
+{
+  "name": "@agroforestry-dmrv/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "devDependencies": {
+    "@nx/js": "22.5.4",
+    "@react-native/babel-preset": "^0.76.9",
+    "@react-native/metro-config": "^0.76.9",
+    "@react-native/typescript-config": "^0.76.9",
+    "@swc-node/register": "~1.11.1",
+    "@swc/core": "~1.15.5",
+    "@swc/helpers": "~0.5.18",
+    "@types/express-serve-static-core": "^5.1.1",
+    "nx": "22.5.4",
+    "prettier": "~3.6.2",
+    "tslib": "^2.3.0",
+    "tsx": "^4.19.1",
+    "typescript": "~5.9.2"
+  }
+}
