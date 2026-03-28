@@ -26,7 +26,7 @@ const UserSchema = new Schema<IUserDoc>(
     role: {
       type: String,
       enum: Object.values(UserRole),
-      default: UserRole.ENUMERATOR,
+      default: UserRole.OPERATOR,
     },
     assignedPlots: [String],
     assignedFarmers: [String],
