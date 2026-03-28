@@ -1,24 +1,22 @@
 {
   "version": 2,
-  "outputDirectory": "public",
-  "builds": [
-    {
-      "src": "apps/api-service/src/index.ts",
-      "use": "@vercel/node"
+  "functions": {
+    "apps/api-service/src/index.ts": {
+      "runtime": "vercel-node@latest"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "apps/api-service/src/index.ts"
+      "source": "/api/(.*)",
+      "destination": "apps/api-service/src/index.ts"
     },
     {
-      "src": "/health",
-      "dest": "apps/api-service/src/index.ts"
+      "source": "/health",
+      "destination": "apps/api-service/src/index.ts"
     },
     {
-      "src": "/(.*)",
-      "dest": "apps/api-service/src/index.ts"
+      "source": "/(.*)",
+      "destination": "apps/api-service/src/index.ts"
     }
   ]
 }
