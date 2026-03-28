@@ -87,12 +87,27 @@ importers:
 
   apps/api-service:
     dependencies:
-      '@dmrv/constants':
-        specifier: workspace:*
-        version: link:../../libs/constants
-      '@dmrv/core-logic':
-        specifier: workspace:*
-        version: link:../../libs/core-logic
+      '@types/bcryptjs':
+        specifier: ^2.4.6
+        version: 2.4.6
+      '@types/cors':
+        specifier: ^2.8.17
+        version: 2.8.19
+      '@types/express':
+        specifier: ^5.0.0
+        version: 5.0.6
+      '@types/jsonwebtoken':
+        specifier: ^9.0.7
+        version: 9.0.10
+      '@types/morgan':
+        specifier: ^1.9.9
+        version: 1.9.10
+      '@types/node':
+        specifier: ^22.0.0
+        version: 22.19.15
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
@@ -117,37 +132,15 @@ importers:
       morgan:
         specifier: ^1.10.0
         version: 1.10.1
-      uuid:
-        specifier: ^10.0.0
-        version: 10.0.0
-    devDependencies:
-      '@types/bcryptjs':
-        specifier: ^2.4.6
-        version: 2.4.6
-      '@types/cors':
-        specifier: ^2.8.17
-        version: 2.8.19
-      '@types/express':
-        specifier: ^5.0.0
-        version: 5.0.6
-      '@types/jsonwebtoken':
-        specifier: ^9.0.7
-        version: 9.0.10
-      '@types/morgan':
-        specifier: ^1.9.9
-        version: 1.9.10
-      '@types/node':
-        specifier: ^22.0.0
-        version: 22.19.15
-      '@types/uuid':
-        specifier: ^10.0.0
-        version: 10.0.0
       tsx:
         specifier: ^4.19.0
         version: 4.21.0
       typescript:
         specifier: ~5.9.2
         version: 5.9.3
+      uuid:
+        specifier: ^10.0.0
+        version: 10.0.0
 
   libs/constants: {}
 
