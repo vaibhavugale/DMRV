@@ -42,7 +42,7 @@ export default function EditFarmerModal({ farmer, onClose, onSuccess }: EditFarm
     setError('');
 
     try {
-      const response = await fetch(`http://localhost:3333/api/farmers/${farmer.farmerId}`, {
+      const response = await fetch(`https://dmrv-f367.onrender.com/api/farmers/${farmer.farmerId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

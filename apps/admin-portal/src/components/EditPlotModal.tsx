@@ -113,7 +113,7 @@ export default function EditPlotModal({ plot, onClose, onSuccess }: EditPlotModa
       const coords = points.map(p => [p.lng, p.lat]);
       coords.push([points[0].lng, points[0].lat]);
 
-      const response = await fetch(`http://localhost:3333/api/plots/${plot.plotId}`, {
+      const response = await fetch(`https://dmrv-f367.onrender.com/api/plots/${plot.plotId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

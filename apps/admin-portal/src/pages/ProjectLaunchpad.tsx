@@ -45,7 +45,7 @@ export default function ProjectLaunchpad() {
       };
 
       // Since we don't have activeProjectId yet, use standard fetch
-      const res = await fetch('http://localhost:3333/api/projects', {
+      const res = await fetch('https://dmrv-f367.onrender.com/api/projects', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

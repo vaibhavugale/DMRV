@@ -26,7 +26,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch('http://localhost:3333/api/projects');
+        const res = await fetch('https://dmrv-f367.onrender.com/api/projects');
         if (!res.ok) throw new Error('Failed to load projects');
         const json = await res.json();
         const projectsData = json.data;

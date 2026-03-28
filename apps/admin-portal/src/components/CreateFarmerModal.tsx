@@ -160,7 +160,7 @@ export default function CreateFarmerModal({ onClose, onSuccess }: CreateFarmerMo
         registrationDate: new Date().toISOString(),
       };
 
-      const farmerResponse = await fetch('http://localhost:3333/api/farmers', {
+      const farmerResponse = await fetch('https://dmrv-f367.onrender.com/api/farmers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(farmerPayload)
@@ -196,7 +196,7 @@ export default function CreateFarmerModal({ onClose, onSuccess }: CreateFarmerMo
           }
         };
 
-        const plotResponse = await fetch('http://localhost:3333/api/plots', {
+        const plotResponse = await fetch('https://dmrv-f367.onrender.com/api/plots', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(plotPayload)
