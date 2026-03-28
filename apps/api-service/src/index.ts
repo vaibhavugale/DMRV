@@ -27,6 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(auditTrailMiddleware);
 
+// Root health check
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok', uptime: process.uptime() });
+});
+
 // Health check
 app.get('/api/health', (_req, res) => {
   res.json({
