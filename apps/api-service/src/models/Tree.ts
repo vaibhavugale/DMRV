@@ -1,6 +1,6 @@
 import { Schema, model, Document, Types } from 'mongoose';
-import { TreeCondition } from '@dmrv/constants';
-import { SPECIES_REGISTRY } from '@dmrv/constants';
+import { TreeCondition } from '../shared/constants';
+import { SPECIES_REGISTRY } from '../shared/constants';
 
 export interface ITreeDoc extends Document {
   treeId: string;

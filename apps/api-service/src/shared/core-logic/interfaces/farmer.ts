@@ -1,5 +1,5 @@
 // Farmer interface for the DMRV system
-import { FarmerStatus } from '@dmrv/constants';
+import { FarmerStatus } from '../../constants';
 
 export interface ISocioEconomicData {
   householdSize: number;

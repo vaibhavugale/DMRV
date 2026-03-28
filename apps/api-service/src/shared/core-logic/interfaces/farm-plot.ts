@@ -1,5 +1,5 @@
 // Farm Plot interface with GeoJSON geometry
-import { PlotLandUse } from '@dmrv/constants';
+import { PlotLandUse } from '../../constants';
 
 export interface IGeoJSONPoint {
   type: 'Point';

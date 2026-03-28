@@ -6,7 +6,7 @@ import { Tree } from '../models/Tree';
 import { Activity } from '../models/Activity';
 import { Project } from '../models/Project';
 import { User } from '../models/User';
-import { FarmerStatus, TreeCondition, ActivityType, UserRole, PlotLandUse } from '@dmrv/constants';
+import { FarmerStatus, TreeCondition, ActivityType, UserRole, PlotLandUse } from '../shared/constants';
 
 dotenv.config();
 

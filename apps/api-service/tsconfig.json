@@ -12,12 +12,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "types": ["node"],
-    "baseUrl": ".",
-    "paths": {
-      "@dmrv/constants": ["src/shared/constants"],
-      "@dmrv/core-logic": ["src/shared/core-logic"]
-    }
+    "types": ["node"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]

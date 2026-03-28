@@ -1,4 +1,4 @@
-import { CertificationStandard, ReportStatus } from '@dmrv/constants';
+import { CertificationStandard, ReportStatus } from '../../constants';
 export interface ILeakageAssessment {
     leakageRiskIdentified: boolean;
     leakageType?: string;

@@ -1,6 +1,6 @@
 import { Schema, model, Document, Types } from 'mongoose';
-import { PlotLandUse } from '@dmrv/constants';
-import { isValidPolygon } from '@dmrv/core-logic';
+import { PlotLandUse } from '../shared/constants';
+import { isValidPolygon } from '../shared/core-logic';
 
 export interface IFarmPlotDoc extends Document {
   plotId: string;

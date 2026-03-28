@@ -1,6 +1,6 @@
 import { Response, NextFunction } from 'express';
 import { AuthRequest } from './auth';
-import { UserRole } from '@dmrv/constants';
+import { UserRole } from '../shared/constants';
 
 /**
  * Role-based access control middleware

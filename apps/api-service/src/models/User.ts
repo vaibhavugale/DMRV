@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { UserRole } from '@dmrv/constants';
+import { UserRole } from '../shared/constants';
 import bcrypt from 'bcryptjs';
 
 export interface IUserDoc extends Document {

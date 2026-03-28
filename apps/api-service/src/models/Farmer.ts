@@ -1,5 +1,5 @@
 import { Schema, model, Document, Types } from 'mongoose';
-import { FarmerStatus } from '@dmrv/constants';
+import { FarmerStatus } from '../shared/constants';
 
 export interface IFarmerDoc extends Document {
   farmerId: string;

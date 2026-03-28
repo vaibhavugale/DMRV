@@ -1,5 +1,5 @@
 // User interface with RBAC
-import { UserRole } from '@dmrv/constants';
+import { UserRole } from '../../constants';
 
 export interface IUser {
   _id?: string;

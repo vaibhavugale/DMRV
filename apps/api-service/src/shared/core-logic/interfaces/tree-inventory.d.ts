@@ -1,4 +1,4 @@
-import { TreeCondition } from '@dmrv/constants';
+import { TreeCondition } from '../../constants';
 import { IGeoJSONPoint } from './farm-plot';
 export interface ITreeInventory {
     _id?: string;

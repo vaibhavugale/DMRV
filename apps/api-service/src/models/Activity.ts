@@ -1,5 +1,5 @@
 import { Schema, model, Document, Types } from 'mongoose';
-import { ActivityType } from '@dmrv/constants';
+import { ActivityType } from '../shared/constants';
 
 export interface IActivityDoc extends Document {
   activityId: string;

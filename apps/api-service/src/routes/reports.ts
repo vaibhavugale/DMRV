@@ -4,8 +4,8 @@ import { FarmPlot } from '../models/FarmPlot';
 import { Farmer } from '../models/Farmer';
 import { Activity } from '../models/Activity';
 import mongoose from 'mongoose';
-import { calculateTreeCarbonBySpecies, calculateNetCredits } from '@dmrv/core-logic';
-import { TreeCondition } from '@dmrv/constants';
+import { calculateTreeCarbonBySpecies, calculateNetCredits } from '../shared/core-logic';
+import { TreeCondition } from '../shared/constants';
 
 const router = Router();
 

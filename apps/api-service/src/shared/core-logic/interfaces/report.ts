@@ -1,5 +1,5 @@
 // Monitoring report interfaces for VCS and Gold Standard
-import { CertificationStandard, ReportStatus } from '@dmrv/constants';
+import { CertificationStandard, ReportStatus } from '../../constants';
 
 export interface ILeakageAssessment {
   leakageRiskIdentified: boolean;

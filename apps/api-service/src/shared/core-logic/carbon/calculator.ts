@@ -3,7 +3,7 @@
 // CO2e = C × 3.667
 
 import { ICarbonParams, ICarbonResult } from '../interfaces/carbon-calculation';
-import { findSpecies, SpeciesInfo } from '@dmrv/constants';
+import { findSpecies, SpeciesInfo } from '../../constants';
 
 /**
  * Calculate merchantable volume from DBH and height

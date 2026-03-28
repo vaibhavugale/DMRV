@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { Tree } from '../models/Tree';
-import { calculateTreeCarbonBySpecies } from '@dmrv/core-logic';
+import { calculateTreeCarbonBySpecies } from '../shared/core-logic';
 import { v4 as uuidv4 } from 'uuid';
 
 const router = Router();

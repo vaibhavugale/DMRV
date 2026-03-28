@@ -1,4 +1,4 @@
-import { ActivityType } from '@dmrv/constants';
+import { ActivityType } from '../../constants';
 export interface IActivity {
     _id?: string;
     activityId: string;
