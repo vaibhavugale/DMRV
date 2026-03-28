@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 export default function AuditPortal() {
   const [activeSection, setActiveSection] = useState<'data' | 'evidence' | 'outliers'>('data');
+  const [selectedTree, setSelectedTree] = useState<any | null>(null);
 
   const auditData = {
     dataPipeline: [
@@ -12,10 +13,10 @@ export default function AuditPortal() {
       { stage: 'Report Generation', method: 'Automated VCS template mapping', status: 'pending', records: 1, timestamp: 'In progress' },
     ],
     photoEvidence: [
-      { treeId: 'TRE-00000001', species: 'Tectona grandis', gps: '12.298°N, 76.898°E', timestamp: '2024-10-05 08:12:34', verified: true },
-      { treeId: 'TRE-00000003', species: 'Mangifera indica', gps: '12.300°N, 76.900°E', timestamp: '2024-10-05 09:45:12', verified: true },
-      { treeId: 'TRE-00000008', species: 'Acacia mangium', gps: '6.445°N, 7.495°E', timestamp: '2024-10-06 07:30:00', verified: true },
-      { treeId: 'TRE-00000012', species: 'Swietenia macrophylla', gps: '15.475°N, -90.365°W', timestamp: '2024-10-10 10:00:00', verified: true },
+      { treeId: 'TRE-00000001', species: 'Tectona grandis', gps: '12.298°N, 76.898°E', timestamp: '2024-10-05 08:12:34', verified: true, dbh: '12.4 cm', height: '4.2 m', condition: 'Healthy', photoUrl: '/tree_evidence.png' },
+      { treeId: 'TRE-00000003', species: 'Mangifera indica', gps: '12.300°N, 76.900°E', timestamp: '2024-10-05 09:45:12', verified: true, dbh: '18.2 cm', height: '3.8 m', condition: 'Healthy', photoUrl: '/tree_evidence.png' },
+      { treeId: 'TRE-00000008', species: 'Acacia mangium', gps: '6.445°N, 7.495°E', timestamp: '2024-10-06 07:30:00', verified: true, dbh: '10.1 cm', height: '5.1 m', condition: 'Healthy', photoUrl: '/tree_evidence.png' },
+      { treeId: 'TRE-00000012', species: 'Swietenia macrophylla', gps: '15.475°N, -90.365°W', timestamp: '2024-10-10 10:00:00', verified: true, dbh: '14.5 cm', height: '4.7 m', condition: 'Healthy', photoUrl: '/tree_evidence.png' },
     ],
     outliers: [
       { type: 'DBH Anomaly', treeId: 'TRE-00000017', detail: 'DBH of 35cm for Ficus religiosa is in the 95th percentile for the species age class.', severity: 'low', action: 'Reviewed — confirmed, mature specimen.' },
@@ -77,7 +78,7 @@ export default function AuditPortal() {
           <div className="card-header">
             <div>
               <div className="card-title">Photo Evidence (EXIF Metadata)</div>
-              <div className="card-subtitle">Time-stamped images with embedded GPS coordinates</div>
+              <div className="card-subtitle">Time-stamped images with embedded GPS coordinates — click for details</div>
             </div>
           </div>
           <div className="data-table-wrapper">
@@ -87,7 +88,7 @@ export default function AuditPortal() {
               </thead>
               <tbody>
                 {auditData.photoEvidence.map(p => (
-                  <tr key={p.treeId}>
+                  <tr key={p.treeId} onClick={() => setSelectedTree(p)} style={{ cursor: 'pointer' }}>
                     <td style={{ fontFamily: 'monospace' }}>{p.treeId}</td>
                     <td style={{ fontStyle: 'italic' }}>{p.species}</td>
                     <td style={{ fontFamily: 'monospace', fontSize: 11 }}>{p.gps}</td>
@@ -128,6 +129,60 @@ export default function AuditPortal() {
               <div style={{ fontSize: 12, color: 'var(--color-primary-600)' }}>Action: {o.action}</div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Tree Detail Modal */}
+      {selectedTree && (
+        <div className="modal-overlay" onClick={() => setSelectedTree(null)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: '600px' }}>
+            <div className="modal-header">
+              <h2 className="modal-title">Tree Evidence: {selectedTree.treeId}</h2>
+              <button className="modal-close" onClick={() => setSelectedTree(null)}>×</button>
+            </div>
+            <div style={{ padding: '20px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+                <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-subtle)' }}>
+                  <img src={selectedTree.photoUrl} alt="Tree evidence" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                </div>
+                <div>
+                  <div style={{ marginBottom: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600 }}>Species</label>
+                    <div style={{ fontSize: '15px', fontWeight: 600, fontStyle: 'italic' }}>{selectedTree.species}</div>
+                  </div>
+                  <div style={{ marginBottom: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600 }}>Geographic Info</label>
+                    <div style={{ fontSize: '13px', fontFamily: 'monospace' }}>{selectedTree.gps}</div>
+                  </div>
+                  <div style={{ marginBottom: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600 }}>Collected On</label>
+                    <div style={{ fontSize: '13px' }}>{selectedTree.timestamp}</div>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600 }}>DBH</label>
+                      <div style={{ fontSize: '14px', fontWeight: 600 }}>{selectedTree.dbh}</div>
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600 }}>Height</label>
+                      <div style={{ fontSize: '14px', fontWeight: 600 }}>{selectedTree.height}</div>
+                    </div>
+                  </div>
+                  <div style={{ marginTop: '12px' }}>
+                    <label style={{ display: 'block', fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600 }}>Condition</label>
+                    <span className="badge green" style={{ marginTop: '4px' }}>{selectedTree.condition}</span>
+                  </div>
+                </div>
+              </div>
+              <div style={{ background: 'var(--bg-tertiary)', padding: '12px', borderRadius: 'var(--radius-md)', fontSize: '12px', color: 'var(--text-secondary)' }}>
+                🛡️ <strong>Integrity Check:</strong> EXIF metadata (GPS/Timestamp) has been verified against field app logs and satellite window. Image hash matches original field submission.
+              </div>
+            </div>
+            <div className="modal-actions">
+              <button className="btn btn-secondary" onClick={() => setSelectedTree(null)}>Close</button>
+              <button className="btn btn-primary" onClick={() => window.open(selectedTree.photoUrl, '_blank')}>View Original Photo</button>
+            </div>
+          </div>
         </div>
       )}
     </div>

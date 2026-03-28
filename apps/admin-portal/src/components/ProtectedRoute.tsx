@@ -30,8 +30,9 @@ export default function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
   }
 
   // 3. Check for active project (for scoped routes)
-  // Super admins can bypass the project requirement for the launchpad
-  if (!activeProjectId && location.pathname !== '/launchpad' && user?.role !== 'super_admin') {
+  // Super admins and Auditors can bypass the project requirement for specific routes
+  const isBypassRole = user?.role === 'super_admin' || user?.role === 'auditor';
+  if (!activeProjectId && location.pathname !== '/launchpad' && !isBypassRole) {
     return <Navigate to="/launchpad" replace />;
   }
 

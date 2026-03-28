@@ -90,7 +90,7 @@ export default function Layout() {
     return { ...section, items };
   }).filter(section => section.items.length > 0);
 
-  const visibleNavItems = activeProjectId ? filteredNavItems : [];
+  const visibleNavItems = (activeProjectId || user?.role === 'super_admin' || user?.role === 'auditor') ? filteredNavItems : [];
 
   return (
     <div className="app-layout">

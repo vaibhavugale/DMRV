@@ -43,7 +43,7 @@ function App() {
             </Route>
 
             {/* Data Management: Super Admin, Admin, & Operator */}
-            <Route element={<ProtectedRoute allowedRoles={['super_admin', 'admin', 'operator']} />}>
+            <Route element={<ProtectedRoute allowedRoles={['super_admin', 'admin', 'operator', 'auditor']} />}>
               <Route element={<Layout />}>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/farmers" element={<Farmers />} />
