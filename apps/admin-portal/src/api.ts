@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3333/api';
+const API_BASE = 'https://dmrv-f367.onrender.com/api';
 
 export async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
   const activeProjectId = localStorage.getItem('dmrv_active_project');
