@@ -1,5 +1,5 @@
-{
   "version": 2,
+  "outputDirectory": "public",
   "builds": [
     {
       "src": "apps/api-service/src/index.ts",
