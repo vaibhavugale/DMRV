@@ -216,7 +216,7 @@ export default function Saplings() {
                   className="form-input" 
                   autoFocus 
                   placeholder="e.g. COHORT-DELTA-2025" 
-                  onChange={(e) => {
+                  onChange={() => {
                     // This is a bit tricky with select as value. 
                     // Better approach: use a separate state for custom if needed, 
                     // but for brevity I'll just update projectInstance directly on change.
